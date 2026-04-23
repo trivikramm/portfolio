@@ -98,7 +98,6 @@ export function Navbar() {
           <Link href="/projects" onClick={() => setMobileMenuOpen(false)} className="text-primary py-2 border-b border-elevated">All Projects (Hub)</Link>
           <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-primary py-2 border-b border-elevated">Experience</Link>
           <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="text-primary py-2 border-b border-elevated">Get a Demo</Link>
-          <a href="/resume.pdf" target="_blank" onClick={() => setMobileMenuOpen(false)} className="text-brand-normal py-2">Download Resume</a>
         </div>
       )}
     </nav>

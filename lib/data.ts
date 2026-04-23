@@ -80,8 +80,18 @@ export const projects: Project[] = [
     id: "proj-agent",
     title: "AgentHire",
     description: "A JavaScript-based platform utilizing autonomous AI agents to streamline and automate recruitment workflows.",
-    tech: ["JavaScript", "AI Agents"],
+    tech: ["JavaScript", "AI Agents", "Vercel"],
     category: "Lab",
+    liveUrl: "https://agent-hire-arc.vercel.app/", 
+    githubUrl: "https://github.com/trivikramm/AgentHire",
+    // New Deep Dive Content:
+    longDescription: "AgentHire is an experimental recruitment platform that leverages autonomous AI agents to evaluate candidate profiles, schedule interviews, and match skill sets with job requirements. The architecture relies on sophisticated prompt engineering and LLM orchestration to reduce manual HR workloads by up to 60%. By utilizing serverless edge functions, the platform ensures rapid response times even during heavy AI inference tasks.",
+    features: [
+      "Autonomous resume parsing and skill-matching utilizing Large Language Models.",
+      "Automated interview scheduling and candidate communication workflows.",
+      "Serverless deployment on Vercel for zero-maintenance scaling.",
+      "Interactive dashboard for HR professionals to monitor AI agent decisions."
+    ]
   },
   {
     id: "proj-crisis",
@@ -128,9 +138,17 @@ export const projects: Project[] = [
     id: "proj-dynamic-form",
     title: "Dynamic Form Generator",
     description: "Engineered a user-friendly and responsive dynamic form generator that streamlines enterprise data collection.",
-    tech: ["TypeScript", "React", "Next.js"],
+    tech: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
     category: "Products",
     featured: true,
+    // New Deep Dive Content:
+    longDescription: "In enterprise environments, data collection requirements change rapidly. This Dynamic Form Generator allows non-technical administrators to build complex, multi-step forms using a JSON-based schema. The application dynamically renders React components on the fly, complete with complex validation logic, conditional rendering, and strict TypeScript type-safety.",
+    features: [
+      "JSON Schema-driven UI rendering for highly adaptable form creation.",
+      "End-to-End (E2E) testing coverage to ensure data integrity and submission accuracy.",
+      "Complex client-side validation using Zod and React Hook Form.",
+      "Fully responsive, accessible UI components styled with Tailwind CSS."
+    ]
   },
   {
     id: "proj-freelance",

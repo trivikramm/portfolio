@@ -25,6 +25,10 @@ export interface Project {
   category: 'Products' | 'Solutions' | 'Lab';
   featured?: boolean;
   githubUrl?: string;
+  liveUrl?: string;
+  // --- New fields for the Deep Dive Page ---
+  longDescription?: string;
+  features?: string[];
 }
 
 export interface Education {
