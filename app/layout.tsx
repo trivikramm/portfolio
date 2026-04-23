@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -25,13 +26,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
-      <body className={`${inter.variable} ${mono.variable} font-sans bg-background text-primary min-h-screen flex flex-col antialiased selection:bg-brand-start/30 selection:text-brand-end`}>
-        <Navbar />
-        <main className="flex-grow pt-24 pb-16 px-6 max-w-6xl mx-auto w-full">
-          {children}
-        </main>
-        <Footer />
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <body className={`${inter.variable} ${mono.variable} font-sans min-h-screen flex flex-col antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <Navbar />
+          <main className="flex-grow w-full">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

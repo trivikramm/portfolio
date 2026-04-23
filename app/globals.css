@@ -4,47 +4,38 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --surface: 240 3% 7%;
-    --elevated: 260 3% 10%;
-    --primary: 0 0% 95%;
-    --secondary: 240 2% 54%;
-    --brand-start: 262 83% 58%;
-    --brand-end: 280 85% 76%;
-    --gold: 43 74% 66%;
+    /* AI21 Light Theme */
+    --background: #ffffff;
+    --surface: #f0f0f1;
+    --elevated: #e1dfec;
+    --primary: #212121;
+    --secondary: #5b5675;
+    --brand-dark: #d00b4e;
+    --brand-normal: #e61e93;
+    --brand-light: #f06b98;
+    --accent-turquoise: #5ec6e8;
+    --accent-yellow: #f9bd64;
+    --hero-gradient: linear-gradient(0deg, #FFF4E1 0%, #F6F5F3 81.5%);
   }
-  
-  * {
-    @apply border-surface;
-  }
-  
-  body {
-    @apply bg-background text-primary;
-    font-feature-settings: "rlig" 1, "calt" 1;
+
+  .dark {
+    /* AI21 Dark Theme */
+    --background: #0a071b;
+    --surface: #141125;
+    --elevated: #2a263f;
+    --primary: #f0f0f1;
+    --secondary: #bcb8d0;
+    --brand-dark: #6e42e1;
+    --brand-normal: #f06b98;
+    --brand-light: rgba(110, 66, 225, 0.15);
+    --accent-turquoise: #5ec6e8;
+    --accent-yellow: #f9bd64;
+    --hero-gradient: linear-gradient(0deg, #141125 0%, #0a071b 100%);
   }
 }
 
-@layer components {
-  /* Custom scrollbar for dark theme */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    @apply bg-background;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    @apply bg-elevated rounded-full;
-  }
-  
-  /* Gradient text utilities */
-  .text-gradient-brand {
-    @apply bg-gradient-to-r from-brand-start to-brand-end bg-clip-text text-transparent;
-  }
-  
-  /* Glow effects */
-  .glow-purple {
-    box-shadow: 0 0 40px rgba(124, 58, 237, 0.15);
-  }
+body {
+  background-color: var(--background);
+  color: var(--primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

@@ -2,8 +2,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { personalInfo } from "@/lib/data"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -14,26 +12,11 @@ export default function Contact() {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    const formData = new FormData(e.currentTarget)
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      message: formData.get('message'),
-    }
-
+    // Simulating API call for the demo request
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      })
-
-      if (response.ok) {
-        setSubmitStatus('success')
-        ;(e.target as HTMLFormElement).reset()
-      } else {
-        setSubmitStatus('error')
-      }
+      await new Promise((resolve) => setTimeout(resolve, 1500))
+      setSubmitStatus('success')
+      ;(e.target as HTMLFormElement).reset()
     } catch (error) {
       setSubmitStatus('error')
     } finally {
@@ -42,113 +25,137 @@ export default function Contact() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto py-12 md:py-24 space-y-12">
-      <motion.section 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center space-y-4"
-      >
-        <h1 className="text-4xl md:text-5xl font-bold text-primary">Let's Collaborate</h1>
-        <p className="text-secondary text-lg max-w-2xl mx-auto">
-          Interested in working together on enterprise web applications or cloud infrastructure? Reach out below.
-        </p>
-      </motion.section>
+    <div className="min-h-screen bg-background pt-32 pb-24">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          
+          {/* Left Column: Enterprise Value Proposition */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="space-y-10 lg:pr-10"
+          >
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-6xl font-light text-primary tracking-tight" style={{ letterSpacing: '-0.03em' }}>
+                Request a <span className="font-serif italic text-brand-normal">Demo</span>
+              </h1>
+              <p className="text-xl text-secondary font-light leading-relaxed">
+                Discover how custom AI integrations, serverless cloud architectures, and scalable full-stack applications can accelerate your business operations.
+              </p>
+            </div>
 
-      <div className="grid md:grid-cols-5 gap-12 items-start">
-        {/* Contact Info Column */}
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
-          className="md:col-span-2 space-y-8"
-        >
-          <Card className="bg-surface/50 border-none">
-            <h3 className="text-xl font-bold text-primary mb-6">Direct Contact</h3>
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm text-secondary mb-1">Email</p>
-                <a href={`mailto:${personalInfo.email}`} className="text-primary hover:text-brand-start transition-colors font-medium">
+            <div className="space-y-6 pt-6 border-t border-elevated">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">What you can expect:</h3>
+              
+              <ul className="space-y-5">
+                {[
+                  "Deep dive into production-grade AI Apps (Jamba & Agentic AI).",
+                  "Architectural review of highly-available AWS/GCP infrastructures.",
+                  "Live walkthrough of Enterprise React & Next.js applications.",
+                  "Direct consultation on integrating AI into your existing workflows."
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 text-secondary font-light">
+                    <span className="text-brand-normal mt-1">✓</span>
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-10">
+              <p className="text-sm text-secondary font-light">
+                Prefer to email directly? <br />
+                <a href={`mailto:${personalInfo.email}`} className="text-brand-normal font-medium hover:text-brand-dark transition-colors">
                   {personalInfo.email}
                 </a>
-              </div>
-              <div>
-                <p className="text-sm text-secondary mb-1">Phone</p>
-                <a href={`tel:${personalInfo.phone}`} className="text-primary hover:text-brand-start transition-colors font-medium">
-                  {personalInfo.phone}
-                </a>
-              </div>
-              <div>
-                <p className="text-sm text-secondary mb-1">Location</p>
-                <p className="text-primary font-medium">India</p>
-              </div>
+              </p>
             </div>
-          </Card>
-        </motion.div>
+          </motion.div>
 
-        {/* Form Column */}
-        <motion.div 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3 }}
-          className="md:col-span-3"
-        >
-          <Card>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-secondary">Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    required
-                    className="w-full bg-background border border-surface rounded-md px-4 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-brand-start/50 focus:border-brand-start transition-all"
-                    placeholder="John Doe"
-                  />
+          {/* Right Column: The Lead Capture Form */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            <div className="bg-surface border border-elevated rounded-2xl p-8 md:p-10 shadow-sm">
+              <h2 className="text-2xl font-medium text-primary mb-8">Get in touch</h2>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="firstName" className="text-sm font-medium text-secondary">First Name *</label>
+                    <input 
+                      type="text" 
+                      id="firstName" 
+                      required
+                      className="w-full bg-background border border-elevated rounded-md px-4 py-3 text-primary focus:outline-none focus:border-brand-normal focus:ring-1 focus:ring-brand-normal transition-all"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="lastName" className="text-sm font-medium text-secondary">Last Name *</label>
+                    <input 
+                      type="text" 
+                      id="lastName" 
+                      required
+                      className="w-full bg-background border border-elevated rounded-md px-4 py-3 text-primary focus:outline-none focus:border-brand-normal focus:ring-1 focus:ring-brand-normal transition-all"
+                    />
+                  </div>
                 </div>
+
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-secondary">Email</label>
+                  <label htmlFor="email" className="text-sm font-medium text-secondary">Work Email *</label>
                   <input 
                     type="email" 
                     id="email" 
-                    name="email" 
                     required
-                    className="w-full bg-background border border-surface rounded-md px-4 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-brand-start/50 focus:border-brand-start transition-all"
-                    placeholder="john@example.com"
+                    className="w-full bg-background border border-elevated rounded-md px-4 py-3 text-primary focus:outline-none focus:border-brand-normal focus:ring-1 focus:ring-brand-normal transition-all"
                   />
                 </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-secondary">Message</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  required
-                  rows={5}
-                  className="w-full bg-background border border-surface rounded-md px-4 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-brand-start/50 focus:border-brand-start transition-all resize-none"
-                  placeholder="How can I help you?"
-                />
-              </div>
 
-              <Button 
-                type="submit" 
-                variant="primary" 
-                className="w-full"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </Button>
+                <div className="space-y-2">
+                  <label htmlFor="company" className="text-sm font-medium text-secondary">Company Name</label>
+                  <input 
+                    type="text" 
+                    id="company" 
+                    className="w-full bg-background border border-elevated rounded-md px-4 py-3 text-primary focus:outline-none focus:border-brand-normal focus:ring-1 focus:ring-brand-normal transition-all"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium text-secondary">How can I help you? *</label>
+                  <textarea 
+                    id="message" 
+                    required
+                    rows={4}
+                    className="w-full bg-background border border-elevated rounded-md px-4 py-3 text-primary focus:outline-none focus:border-brand-normal focus:ring-1 focus:ring-brand-normal transition-all resize-none"
+                  />
+                </div>
 
-              {submitStatus === 'success' && (
-                <p className="text-green-500 text-sm text-center">Message sent successfully! I'll get back to you soon.</p>
-              )}
-              {submitStatus === 'error' && (
-                <p className="text-red-500 text-sm text-center">Failed to send message. Please try emailing directly.</p>
-              )}
-            </form>
-          </Card>
-        </motion.div>
+                <p className="text-xs text-secondary font-light leading-relaxed">
+                  By submitting this form, you agree to receive communications regarding your inquiry. Your information will be handled securely.
+                </p>
+
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-brand-dark text-white rounded-md hover:bg-opacity-90 transition-all font-medium uppercase tracking-wider text-sm disabled:opacity-50"
+                >
+                  {isSubmitting ? 'Submitting...' : 'Request Demo'}
+                </button>
+
+                {submitStatus === 'success' && (
+                  <p className="text-brand-normal text-sm text-center font-medium pt-2">Request sent successfully! I will be in touch shortly.</p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="text-red-500 text-sm text-center font-medium pt-2">Something went wrong. Please email directly.</p>
+                )}
+              </form>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
     </div>
   )

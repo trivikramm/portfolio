@@ -4,7 +4,12 @@ import { experience } from "@/lib/data"
 
 export function ExperienceTimeline() {
   return (
-    <div className="space-y-16 border-l-2 border-elevated ml-4 md:ml-6 py-4">
+    <div className="relative space-y-16 ml-4 md:ml-6 pb-8 pt-2">
+      {/* Unbreakable Continuous Vertical Line 
+        Positioned exactly in the center of the dots 
+      */}
+      <div className="absolute left-[4px] top-4 bottom-0 w-[2px] bg-elevated z-0" />
+      
       {experience.map((exp, idx) => (
         <motion.div 
           key={exp.id}
@@ -12,15 +17,15 @@ export function ExperienceTimeline() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: idx * 0.1 }}
-          className="relative pl-8 md:pl-12"
+          className="relative pl-10 md:pl-14"
         >
-          {/* Timeline Marker - Vibrant Magenta */}
-          <div className="absolute -left-[9px] top-1.5 w-4 h-4 bg-brand-end rounded-full ring-4 ring-background" />
+          {/* Perfectly aligned timeline dot */}
+          <div className="absolute left-[-1px] top-2.5 w-3 h-3 bg-brand-normal rounded-full ring-[6px] ring-background z-10" />
           
-          <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2 gap-2">
-            <h3 className="text-2xl font-bold text-primary">{exp.role}</h3>
-            {/* Turquoise pill for dates */}
-            <span className="text-sm font-mono text-accent-turquoise bg-accent-turquoise/10 px-3 py-1 rounded-full w-fit border border-accent-turquoise/20">
+          <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2 gap-4">
+            <h3 className="text-2xl font-semibold text-primary tracking-tight">{exp.role}</h3>
+            {/* Outline pill for dates to match AI21 clean aesthetic */}
+            <span className="text-xs font-mono text-primary border border-elevated bg-surface px-4 py-1.5 rounded-full w-fit tracking-wider">
               {exp.period}
             </span>
           </div>
@@ -29,8 +34,8 @@ export function ExperienceTimeline() {
           
           <ul className="space-y-4 text-secondary">
             {exp.description.map((item, i) => (
-              <li key={i} className="flex gap-4 text-base leading-relaxed">
-                <span className="text-brand-start mt-0.5">▹</span>
+              <li key={i} className="flex gap-4 text-[15px] leading-relaxed font-light">
+                <span className="text-brand-normal mt-0.5 opacity-70">▹</span>
                 <span>{item}</span>
               </li>
             ))}

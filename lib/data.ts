@@ -59,27 +59,93 @@ export const experience: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  // --- LAB (AI & ML) ---
   {
-    id: "proj-1",
-    title: "Personalized LMS",
-    description: "An AI-integrated Learning Management System that provides personalized educational experiences. Includes a real-time AI chatbot for student support.",
-    tech: ["React.js", "Spring Boot", "Gemini API", "GCP"],
+    id: "proj-jamba",
+    title: "Long Context AI Apps with Jamba",
+    description: "Built production-grade AI applications leveraging the Jamba model for extended context windows and complex reasoning.",
+    tech: ["AI", "Jamba", "LLMs"],
+    category: "Lab",
     featured: true,
   },
   {
-    id: "proj-2",
+    id: "proj-vet",
+    title: "Voice-Powered AI Vet Assistant",
+    description: "An interactive, voice-driven AI assistant designed to aid veterinary practices with preliminary diagnostics and workflow automation.",
+    tech: ["TypeScript", "Voice AI", "Next.js"],
+    category: "Lab",
+    featured: true,
+  },
+  {
+    id: "proj-agent",
+    title: "AgentHire",
+    description: "A JavaScript-based platform utilizing autonomous AI agents to streamline and automate recruitment workflows.",
+    tech: ["JavaScript", "AI Agents"],
+    category: "Lab",
+  },
+  {
+    id: "proj-crisis",
+    title: "Crisis Resource Finder",
+    description: "A specialized platform built to quickly locate and allocate resources during critical emergency situations.",
+    tech: ["TypeScript", "React"],
+    category: "Lab",
+  },
+
+  // --- SOLUTIONS (Cloud & Infrastructure) ---
+  {
+    id: "proj-serverless-api",
+    title: "Serverless REST API",
+    description: "Highly scalable serverless architecture utilizing AWS DynamoDB and API Gateway for optimal performance.",
+    tech: ["TypeScript", "AWS API Gateway", "DynamoDB"],
+    category: "Solutions",
+    featured: true,
+  },
+  {
+    id: "proj-alb",
+    title: "Scalable Web App with ALB",
+    description: "Infrastructure as Code (IaC) deployment of a highly available web application using Application Load Balancers and Auto Scaling groups.",
+    tech: ["HCL", "Terraform", "AWS EC2"],
+    category: "Solutions",
+    featured: true,
+  },
+  {
+    id: "proj-azure",
+    title: "Azure AI Projects",
+    description: "A collection of machine learning and artificial intelligence solutions deployed directly on Microsoft Azure infrastructure.",
+    tech: ["Python", "Azure AI"],
+    category: "Solutions",
+  },
+  {
+    id: "proj-img",
+    title: "Serverless Image Processing",
+    description: "Event-driven Python application that automatically processes and optimizes images upon cloud upload.",
+    tech: ["Python", "AWS Lambda", "S3"],
+    category: "Solutions",
+  },
+
+  // --- PRODUCTS (Web & Apps) ---
+  {
+    id: "proj-dynamic-form",
     title: "Dynamic Form Generator",
-    description: "A responsive tool streamlining data collection and improving accuracy through adaptable form creation, validated via comprehensive E2E testing.",
-    tech: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
+    description: "Engineered a user-friendly and responsive dynamic form generator that streamlines enterprise data collection.",
+    tech: ["TypeScript", "React", "Next.js"],
+    category: "Products",
     featured: true,
   },
   {
-    id: "proj-3",
-    title: "Real-Time Weather App",
-    description: "Application visualizing complex meteorological data from the OpenWeather API, featuring city search autocomplete and a 5-day forecast.",
-    tech: ["JavaScript", "REST APIs", "CSS3"],
-    featured: true,
-  }
+    id: "proj-freelance",
+    title: "Freelance Jobs WebApp",
+    description: "A sleek, responsive web application connecting freelancers with opportunities, featuring modern CSS architectures.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    category: "Products",
+  },
+  {
+    id: "proj-auth",
+    title: "JWT Auth & Axum REST API",
+    description: "Secure authentication systems built with JSON Web Tokens and robust user management endpoints.",
+    tech: ["JavaScript", "Axum", "Security"],
+    category: "Products",
+  },
 ];
 
 export const education: Education[] = [

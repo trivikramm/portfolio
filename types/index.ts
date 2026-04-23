@@ -22,7 +22,9 @@ export interface Project {
   title: string;
   description: string;
   tech: string[];
+  category: 'Products' | 'Solutions' | 'Lab';
   featured?: boolean;
+  githubUrl?: string;
 }
 
 export interface Education {
