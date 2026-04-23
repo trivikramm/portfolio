@@ -9,25 +9,25 @@ export default function Home() {
   const featuredProjects = projects.filter(p => p.featured)
 
   return (
-    <div className="space-y-32">
+    <div className="space-y-[170px] pb-[170px]">
       <HeroSection />
 
-      <section id="work" className="space-y-12">
-        <div className="flex justify-between items-end border-b border-surface pb-4">
+      <section id="work" className="space-y-16">
+        <div className="flex justify-between items-end border-b border-elevated pb-6">
           <div>
-            <h2 className="text-3xl font-bold text-primary mb-2">Selected Work</h2>
-            <p className="text-secondary">Highlighted enterprise solutions and applications.</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight">Selected Work</h2>
+            <p className="text-secondary text-lg">Highlighted enterprise solutions and applications.</p>
           </div>
           <Link href="/projects" className="hidden md:block">
-            <Button variant="ghost">View All Work →</Button>
+            <Button variant="ghost" className="text-accent-turquoise hover:text-accent-turquoise/80">View All Work →</Button>
           </Link>
         </div>
         
         <ProjectGrid projects={featuredProjects} />
         
-        <div className="md:hidden mt-8 text-center">
+        <div className="md:hidden mt-12 text-center">
           <Link href="/projects">
-            <Button variant="outline" className="w-full">View All Work</Button>
+            <Button variant="outline" className="w-full border-elevated text-primary">View All Work</Button>
           </Link>
         </div>
       </section>

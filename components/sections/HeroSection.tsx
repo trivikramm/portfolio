@@ -7,7 +7,7 @@ import Link from "next/link"
 export function HeroSection() {
   return (
     <section className="min-h-[75vh] flex flex-col justify-center relative pt-12">
-      {/* Background Glow */}
+      {/* Background Glow using the new brand token */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-glow rounded-full blur-[120px] -z-10" />
       
       <motion.div
@@ -17,6 +17,7 @@ export function HeroSection() {
       >
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight text-primary">
           Engineering <br />
+          {/* New vibrant Magenta to Purple gradient */}
           <span className="bg-gradient-to-r from-brand-start to-brand-end bg-clip-text text-transparent">
             Scalable Systems.
           </span>
@@ -39,10 +40,13 @@ export function HeroSection() {
         className="flex flex-wrap gap-4"
       >
         <Link href="/projects">
-          <Button variant="primary">View Projects</Button>
+          {/* Using the new button variants inheriting the updated colors */}
+          <Button variant="primary" className="bg-accent-turquoise text-background hover:bg-accent-turquoise/90">
+            View Projects
+          </Button>
         </Link>
         <Link href="/contact">
-          <Button variant="outline">Contact Me</Button>
+          <Button variant="outline" className="border-elevated text-primary hover:bg-surface">Contact Me</Button>
         </Link>
       </motion.div>
     </section>

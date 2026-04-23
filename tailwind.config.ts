@@ -9,30 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#0A0A0F', // AI21 Dark mode base
-        surface: '#12121A',
-        elevated: '#1A1A25',
-        primary: '#F2F2F2',
-        secondary: '#8A8A9A',
+        background: '#0a071b', // AI21 --neutral-900
+        surface: '#141125', // AI21 --neutral-800
+        elevated: '#2a263f', // AI21 --neutral-700
+        primary: '#f0f0f1', // AI21 --white-smoke
+        secondary: '#bcb8d0', // AI21 --neutral-300
         brand: {
-          start: '#7C3AED',
-          end: '#C084FC',
-          glow: 'rgba(124,58,237,0.15)',
+          start: '#6e42e1', // AI21 --write-primary-normal
+          end: '#f06b98', // AI21 --primary-magenta
+          glow: 'rgba(110, 66, 225, 0.15)',
         },
-        gold: {
-          DEFAULT: '#D4A853',
-          hover: '#FCD34D',
+        accent: {
+          turquoise: '#5ec6e8', // AI21 --turquoise-normal
+          yellow: '#f9bd64', // AI21 --yellow-normal
         },
       },
       fontFamily: {
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
-      },
-      backgroundImage: {
-        'gradient-brand': 'linear-gradient(to right, var(--tw-gradient-stops))',
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       boxShadow: {
-        'glow-purple': '0 0 40px rgba(124,58,237,0.15)',
+        'glow-brand': '0 0 40px rgba(110, 66, 225, 0.15)',
       },
     },
   },
