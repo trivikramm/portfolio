@@ -7,7 +7,7 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto px-6">
         
         {/* Top Row: AI21 Style 5-Column Grid */}
-        <div className="flex flex-col lg:flex-row justify-between gap-16 mb-20">
+        <div className="flex flex-col lg:flex-row justify-between gap-16 mb-16">
           
           {/* Logo Section */}
           <div className="lg:w-1/5">
@@ -71,11 +71,25 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Massive Faded Text Effect */}
-        <div className="w-full text-center select-none pointer-events-none mb-10 overflow-hidden relative z-0">
-          <h2 className="text-[7.5vw] font-bold text-elevated dark:text-elevated/40 tracking-tighter whitespace-nowrap leading-none">
-            Building Timeless Intelligence
-          </h2>
+        {/* Massive Faded Text Effect - Tightly Bounded SVG */}
+        <div className="w-full select-none pointer-events-none mb-10 flex items-center justify-center">
+          <svg 
+            viewBox="0 0 1950 150" /* Shrink-wrapped to perfectly hug the 30 characters */
+            className="w-full h-auto text-elevated dark:text-elevated/40"
+            aria-hidden="true"
+          >
+            <text 
+              x="50%" 
+              y="55%" /* Adjusted slightly down for perfect vertical centering */
+              dominantBaseline="central" 
+              textAnchor="middle" 
+              className="font-bold tracking-tighter" 
+              fontSize="145" 
+              fill="currentColor"
+            >
+              Building Timeless Intelligence
+            </text>
+          </svg>
         </div>
 
         {/* Bottom Row: Policies & Socials */}
